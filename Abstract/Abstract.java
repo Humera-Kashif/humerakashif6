@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 public class Abstract {
 		public static void main (String[] args){
 			
@@ -16,7 +16,8 @@ public class Abstract {
 		System.out.print(shapeList[i].tostring());
 		System.out.print(shapeList[i].area()+" ");
 		System.out.println(shapeList[i].perimeter()+ " ");
-		//System.out.println(shapeList[i].color());
+		System.out.print("Color?");
+		System.out.println(shapeList[i].color());
 	}
 		}
 	
