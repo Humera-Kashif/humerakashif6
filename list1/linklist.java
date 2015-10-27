@@ -63,8 +63,9 @@ public int index(int num){
 	}
 	
 public void sort(){
+	
+	for(j=1;j<1;j++){
 		node ptr=First;
-		
 	for(j=1;j<i;j++)
 	{
 		node a=ptr;
@@ -74,7 +75,7 @@ public void sort(){
 		a.num=b.num;
 		b.num=x;}
 	ptr=ptr.next;}
-	}
+	}}
 	public void update(int num,int pos,int val){
 		node ptr=First;
 	    index(num);
