@@ -1,0 +1,214 @@
+MAIN
+
+
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args)
+	{
+	
+		Scanner scn=new Scanner(System.in);
+    	
+		linklist MyList = new linklist();
+	
+		student st;
+		
+		MyList.add(st=new student("hh","ww",1));
+		MyList.add(st=new student("kk","zz",7));
+		MyList.add(st=new student("ff","gg",3));
+		MyList.add(st=new student("yy","qq",4));
+		MyList.add(st=new student("tt","WW",5));
+		MyList.add(st=new student("xx","vv",2));
+		MyList.index(1);
+		MyList.search(1);
+		MyList.sort();
+		MyList.update(2,98);
+		MyList.remove();
+		MyList.display();	
+}}
+
+
+NODE CLASS
+import java.util.Scanner;
+public class node {
+
+	public node previous;
+	public node next;
+	public node address;
+	public student st;
+	//public int maths;
+	Scanner scn=new Scanner(System.in);
+	public node(student st,node next,node previous)
+	{
+		 //String Firstname;
+		//int rollno;
+		//String Lastname;
+		
+		this.st=st=new student(st.Firstname,st.Lastname,st.rollno);
+		st.maths=scn.nextInt();
+		this.next=next;
+		this.previous=previous;
+	}
+}
+
+
+STUDENT CLASS 
+public class student {
+
+	public String Firstname;		
+	public String Lastname;
+	public int rollno;
+	public int maths;
+	
+
+	public student(String Firstname,String Lastname,int rollno){
+		
+		//Firstname=scn.next();
+		//Lastname=scn.next();
+		//rollno=scn.nextInt();
+    this.maths=maths;
+	this.Firstname=Firstname;
+	this.Lastname=Lastname;
+	this.rollno=rollno;
+	}
+}
+
+LIST CLASS
+
+
+public abstract class list {
+	
+	
+	public abstract void add(student st);
+	public abstract void remove();
+	public abstract void sort();
+	public abstract void search(int rollno);
+	public abstract void display();
+	public abstract void update(int maths,int pos,int mathsmod);
+
+}
+
+
+LINKLIST CLASS
+
+import java.util.Scanner;
+public class linklist{
+
+	public node list;
+	public node First = null;
+	public node Last = null;
+	public int i=0;
+	public int j;
+    public int h;
+    public int num;
+    public int maths;
+    public student st;
+    Scanner scn=new Scanner(System.in);
+    
+    
+	public void add(student st){
+			
+		//st=new student(Firstname,Lastname,rollno);
+		node list=new node(st,null,null);
+		//maths=st.maths;
+		i++;
+		if (First==null){
+ 			First=list;
+ 			Last=First;
+ 		}
+		else
+ 		{
+ 			Last.next=list;
+ 			list.previous=Last;
+ 			Last=list;
+ 			
+ 		}
+		
+     }
+public int index(int rollno){
+	
+		
+		node ptr=First;
+		
+		for(j=1;j<=i;j++){
+			
+			if(ptr.st.rollno==rollno)
+			{
+			h=j;
+			}
+			ptr=ptr.next;}
+		return h;
+	}
+   
+	
+	public void remove (){
+		node ptr=First;
+		Last=Last.previous;
+		Last.next=null;
+		i--;
+	}
+	
+	public void search(int rollno){
+		index(rollno);
+		node ptr=First;
+		for(j=1;j<=i;j++)
+		{
+			if(ptr.st.rollno==rollno){
+				
+				System.out.println("The number is at pos "+h);
+			}
+		ptr=ptr.next;}
+	}
+	
+public void sort(){
+	
+	for(int k=1;k<i;k++){
+	node ptr=First;
+	for(j=1;j<i;j++)
+	{	
+		node a=ptr;
+		node b=ptr.next;
+		if(a.st.rollno>b.st.rollno){
+			student x=a.st;
+			a.st=b.st;
+			b.st=x;
+		} 
+	ptr=ptr.next;
+	}}}
+	public void update(int rollno,int mathsmod){
+		node ptr=First;
+	    index(rollno);
+	    int pos=h;
+		for(j=1;j<i;j++){
+			if(j==pos)
+			{
+				ptr.st.maths=mathsmod;
+			}
+		ptr=ptr.next;}
+		
+	}
+	public void display(){
+        if (i == 0) 
+
+        {
+
+            System.out.println("empty");
+        }
+       
+ node ptr=First;
+ //System.out.print(First.st.Firstname+ " ");
+
+ //ptr = First.next;
+        
+    while (ptr.next != null)
+
+    {
+
+        System.out.println(ptr.st.rollno+" "+ptr.st.Firstname+" "+ptr.st.Lastname+" "+ptr.st.maths);
+
+        ptr= ptr.next;
+
+    }
+    System.out.println(ptr.st.rollno+" "+ptr.st.Firstname+" "+ptr.st.Lastname+" "+ptr.st.maths);
+	
+}}
+
